@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SFK Safety & Industrial Supplies — Premium Export Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --steel: #0d0f12;
+    --steel-mid: #161a1f;
+    --steel-light: #1f252d;
+    --orange: #f4650a;
+    --orange-dim: #c44e05;
+    --cream: #f0ebe0;
+    --muted: #6b7480;
+    --border: rgba(244,101,10,0.15);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--steel);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13,15,18,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--cream);
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange);
+    color: white;
+    padding: 8px 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--orange-dim); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 50%, rgba(244,101,10,0.06) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(244,101,10,0.04) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(244,101,10,0.04) 80px);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(244,101,10,0.1);
+    border: 1px solid rgba(244,101,10,0.3);
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--orange);
+    display: block;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(240,235,224,0.6);
+    line-height: 1.7;
+    max-width: 500px;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    padding: 14px 32px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--orange-dim); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1px solid rgba(240,235,224,0.2);
+    color: var(--cream);
+    padding: 14px 32px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-stats {
+    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 1.5rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-card {
+    background: var(--steel-light);
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    text-align: right;
+    min-width: 160px;
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), var(--orange), var(--border), transparent);
+  }
+
+  /* SECTION BASE */
+  section { padding: 80px 5%; }
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: rgba(240,235,224,0.5);
+    font-size: 0.95rem;
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  /* PRODUCTS */
+  .products { background: var(--steel-mid); }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+  .product-card {
+    background: var(--steel);
+    padding: 2rem;
+    border: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--orange);
+    transition: height 0.3s;
+  }
+  .product-card:hover { background: var(--steel-light); border-color: var(--border); }
+  .product-card:hover::before { height: 100%; }
+  .product-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .product-cat {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+  .product-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* WHY US */
+  .whyus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .feature-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .feature-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(244,101,10,0.08);
+  }
+  .feature-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--orange);
+    line-height: 1;
+    min-width: 2rem;
+    opacity: 0.5;
+  }
+  .feature-text strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+  }
+  .feature-text span {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .highlight-box {
+    background: var(--steel-light);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    position: relative;
+  }
+  .highlight-box::after {
+    content: '';
+    position: absolute;
+    top: -1px; right: -1px;
+    width: 40px; height: 40px;
+    background: var(--orange);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+  .exp-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    color: var(--orange);
+    line-height: 1;
+    opacity: 0.8;
+  }
+  .exp-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+  .market-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .market-tag {
+    background: rgba(244,101,10,0.1);
+    border: 1px solid rgba(244,101,10,0.2);
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  /* CATALOG CTA */
+  .catalog-cta {
+    background: var(--steel-mid);
+    text-align: center;
+    padding: 80px 5%;
+  }
+  .catalog-cta .section-title { margin-bottom: 0.8rem; }
+  .catalog-cta .section-sub { margin: 0 auto 2.5rem; text-align: center; }
+  .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    background: var(--steel-light);
+    border: 1px solid rgba(240,235,224,0.08);
+    color: var(--cream);
+    padding: 12px 16px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--orange);
+  }
+  .form-group select option { background: var(--steel-mid); }
+  .form-group textarea { min-height: 100px; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .info-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .info-icon {
+    width: 40px; height: 40px;
+    background: rgba(244,101,10,0.1);
+    border: 1px solid rgba(244,101,10,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .info-text strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+  }
+  .info-text span {
+    font-size: 0.9rem;
+    color: var(--cream);
+  }
+  .whatsapp-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366;
+    color: white;
+    padding: 14px 28px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: background 0.2s;
+  }
+  .whatsapp-btn:hover { background: #1ba851; }
+
+  /* FOOTER */
+  footer {
+    background: var(--steel);
+    border-top: 1px solid var(--border);
+    padding: 2rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    color: var(--cream);
+  }
+  .footer-logo span { color: var(--orange); }
+  footer p {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-stats { display: none; }
+    .whyus-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SFK<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Catalog</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Trusted Export Partner — Kuwait & Middle East</div>
+    <h1>Industrial Safety<em>Built to Last.</em></h1>
+    <p class="hero-sub">Premium leather safety gloves, welding protection, and industrial cotton supplies. Exported to Kuwait and across the Middle East with 15+ years of proven reliability.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request Catalog →</a>
+      <a href="#products" class="btn-secondary">View Products</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Export Ready</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">B2B</div>
+      <div class="stat-label">Industrial Focus</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-tag">What We Supply</div>
+  <div class="section-title">Product Range</div>
+  <p class="section-sub">Manufactured to international standards for industrial, fabrication, and workshop environments.</p>
+
+  <div class="products-grid">
+    <div class="product-card">
+      <span class="product-icon">🧤</span>
+      <div class="product-cat">Leather Protection</div>
+      <div class="product-name">Welding Gloves</div>
+      <p class="product-desc">Heavy-duty leather protection for arc and MIG welding. Heat-resistant, reinforced stitching.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">⚡</span>
+      <div class="product-cat">Leather Protection</div>
+      <div class="product-name">TIG Welding Gloves</div>
+      <p class="product-desc">Precision TIG gloves for dexterity and heat control. Thin leather, tactile feedback.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🚗</span>
+      <div class="product-cat">Leather Protection</div>
+      <div class="product-name">Driving Gloves</div>
+      <p class="product-desc">Industrial and commercial driving gloves. Grip-enhanced, durable, long-lasting.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🛡️</span>
+      <div class="product-cat">Body Protection</div>
+      <div class="product-name">Welding Aprons</div>
+      <p class="product-desc">Full-body leather aprons for welders. Spark and spatter resistant. Adjustable fit.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">💪</span>
+      <div class="product-cat">Arm & Leg Guards</div>
+      <div class="product-name">Hand Sleeves & Leg Guards</div>
+      <p class="product-desc">Leather arm sleeves and leg guards for complete worker protection in fabrication zones.</p>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🔩</span>
+      <div class="product-cat">Industrial Cleaning</div>
+      <div class="product-name">Cotton Waste Products</div>
+      <p class="product-desc">Cotton rags, yarn waste, and thread waste for industrial cleaning and maintenance use.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="about">
+  <div class="whyus-grid">
+    <div>
+      <div class="section-tag">Why Choose SFK</div>
+      <div class="section-title">Reliability You Can Export On</div>
+      <ul class="feature-list">
+        <li class="feature-item">
+          <div class="feature-num">01</div>
+          <div class="feature-text">
+            <strong>15+ Years in the Industry</strong>
+            <span>Decades of manufacturing and export experience serving Kuwait and the wider Gulf region.</span>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-num">02</div>
+          <div class="feature-text">
+            <strong>Export-Ready Documentation</strong>
+            <span>Proper invoicing, packing lists, and product certification for seamless international trade.</span>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-num">03</div>
+          <div class="feature-text">
+            <strong>Custom Bulk Orders</strong>
+            <span>Flexible quantities with consistent quality. Designed for distributors and industrial buyers.</span>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-num">04</div>
+          <div class="feature-text">
+            <strong>Direct Manufacturer Pricing</strong>
+            <span>No middlemen. Competitive pricing with direct factory-to-buyer supply chain.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="highlight-box">
+        <div class="exp-num">15+</div>
+        <div class="exp-label">Years of Export Operations</div>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">SFK Safety & Industrial Supplies has been supplying premium leather and cotton industrial products to businesses in Kuwait and the Middle East. Our products meet the demands of real industrial environments.</p>
+        <div class="market-tags">
+          <span class="market-tag">Kuwait</span>
+          <span class="market-tag">Middle East</span>
+          <span class="market-tag">B2B Export</span>
+          <span class="market-tag">Industrial</span>
+          <span class="market-tag">Welding</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CATALOG CTA -->
+<div class="catalog-cta">
+  <div class="section-tag">Ready to Order?</div>
+  <div class="section-title">Request Our Product Catalog</div>
+  <p class="section-sub">Get our full export catalog with product specs, MOQ, and pricing. Sent directly to your inbox.</p>
+  <div class="cta-group">
+    <a href="#contact" class="btn-primary">Request Catalog →</a>
+    <a href="https://wa.me/923001234567" class="whatsapp-btn">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--steel-mid)">
+  <div class="section-tag">Get In Touch</div>
+  <div class="section-title">Start a Conversation</div>
+  <div class="contact-grid">
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Full name or company name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Product Interest</label>
+        <select>
+          <option>Welding Gloves</option>
+          <option>TIG Welding Gloves</option>
+          <option>Welding Aprons</option>
+          <option>Driving Gloves</option>
+          <option>Hand Sleeves / Leg Guards</option>
+          <option>Cotton Waste Products</option>
+          <option>Full Range Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us your requirements, quantity, and destination country..."></textarea>
+      </div>
+      <button class="btn-primary" style="border:none;cursor:pointer;">Send Inquiry →</button>
+    </div>
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div class="info-text">
+          <strong>Email</strong>
+          <span>info@sfksafety.com</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text">
+          <strong>Location</strong>
+          <span>Pakistan — Exporting to Kuwait & Middle East</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div class="info-text">
+          <strong>Response Time</strong>
+          <span>Within 24 hours for all inquiries</span>
+        </div>
+      </div>
+      <a href="https://wa.me/923001234567" class="whatsapp-btn">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SFK<span>.</span></div>
+  <p>© 2025 SFK Safety & Industrial Supplies. All rights reserved.</p>
+  <p style="color:var(--muted);font-size:0.75rem;">Pakistan · Kuwait · Middle East</p>
+</footer>
+
+</body>
+</html>
